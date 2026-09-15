@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Shop — Enrovel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/typography.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<style>
+  /* ===== SHOP LAYOUT ===== */
+  .shop-hero { padding: 140px 0 40px; text-align: center; background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg) 100%); border-bottom: 1px solid var(--color-border); }
+  .shop-hero h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--color-text-heading); font-family: var(--font-heading); }
+  .shop-hero p { color: var(--color-text-muted); font-size: 1.1rem; }
+
+  /* ===== BRAND GRID (main page) ===== */
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; padding: 40px 0 60px; }
+  .brand-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 12px; padding: 30px 20px; text-align: center; transition: all 0.3s; cursor: pointer; }
+  .brand-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 32px rgba(59, 184, 184, 0.1); transform: translateY(-4px); }
+  .brand-card img { max-height: 50px; max-width: 120px; object-fit: contain; margin-bottom: 12px; }
+  .brand-card .brand-name { font-size: 1rem; font-weight: 700; color: var(--color-text-heading); font-family: var(--font-heading); margin-bottom: 4px; }
+  .brand-card .brand-count { font-size: 0.75rem; color: var(--color-text-muted); }
+
+  /* ===== LOGO GRID (new main view) ===== */
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; padding: 40px 0 60px; }
+  .logo-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 12px; padding: 24px 16px; text-align: center; transition: all 0.3s; cursor: pointer; display: flex; align-items: center; justify-content: center; min-height: 100px; }
+  .logo-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 32px rgba(59, 184, 184, 0.1); transform: translateY(-4px); }
+  .logo-card img { max-height: 44px; max-width: 110px; object-fit: contain; }
+  .logo-card .logo-fallback { font-size: 1rem; font-weight: 700; color: var(--color-text-heading); font-family: var(--font-heading); text-align: center; word-break: break-word; line-height: 1.2; }
+
+  .product-image { width: 100%; height: 180px; background: linear-gradient(135deg, var(--color-bg), var(--color-bg-dark)); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--color-accent); overflow: hidden; }
+  .product-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== PRODUCT CARDS (inside brand) ===== */
+  .product-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; transition: all 0.3s; position: relative; }
+  .product-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 32px rgba(59, 184, 184, 0.1); transform: translateY(-4px); }
+  .product-card .product-body { padding: 24px; }
+  .product-card .brand-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); margin-bottom: 8px; font-weight: 700; }
+  .product-card .product-name { font-size: 0.95rem; font-weight: 700; color: var(--color-text-heading); margin-bottom: 6px; }
+  .product-card .product-desc { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 16px; line-height: 1.4; min-height: 36px; }
+  .product-card .product-price { font-size: 1.2rem; font-weight: 700; color: var(--color-accent-dark); margin-bottom: 12px; }
+  .product-card .product-price .vat-label { font-size: 0.6rem; color: var(--color-text-muted); display: block; margin-top: 2px; }
+  .product-card .add-to-cart { width: 100%; padding: 10px; background: var(--color-accent); color: var(--color-white); border: none; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.3s; }
+  .product-card .add-to-cart:hover { background: var(--color-accent-dark); transform: scale(1.02); box-shadow: 0 4px 16px rgba(59, 184, 184, 0.3); }
+
+  /* ===== CATEGORY TABS ===== */
+  .category-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 20px 0 30px; }
+  .cat-tab { padding: 8px 20px; border: 1px solid var(--color-border); border-radius: 20px; background: var(--color-white); color: var(--color-text-muted); font-size: 0.8rem; cursor: pointer; transition: all 0.3s; }
+  .cat-tab:hover, .cat-tab.active { border-color: var(--color-accent); color: var(--color-accent); background: rgba(59, 184, 184, 0.05); }
+
+  /* ===== CART ICON ===== */
+  .cart-icon { position: fixed; top: 90px; right: 24px; z-index: 999; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .cart-icon:hover { border-color: var(--color-accent); transform: scale(1.1); }
+  .cart-icon svg { width: 24px; height: 24px; stroke: var(--color-text); stroke-width: 2; fill: none; }
+  .cart-badge { position: absolute; top: -4px; right: -4px; background: var(--color-accent); color: var(--color-white); font-size: 0.65rem; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+  /* ===== CART DRAWER ===== */
+  .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s; }
+  .cart-overlay.open { opacity: 1; visibility: visible; }
+  .cart-drawer { position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100%; background: var(--color-white); border-left: 1px solid var(--color-border); z-index: 1001; transition: right 0.3s; display: flex; flex-direction: column; }
+  .cart-drawer.open { right: 0; }
+  .cart-header { padding: 24px; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+  .cart-header h3 { font-size: 1.2rem; color: var(--color-text-heading); font-family: var(--font-heading); }
+  .cart-close { background: none; border: none; color: var(--color-text-muted); font-size: 1.5rem; cursor: pointer; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 16px; }
+  .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--color-border-light); }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 0.8rem; font-weight: 600; color: var(--color-text-heading); }
+  .cart-item-price { font-size: 0.75rem; color: var(--color-accent-dark); }
+  .cart-item-qty { display: flex; align-items: center; gap: 8px; }
+  .cart-item-qty button { width: 28px; height: 28px; border: 1px solid var(--color-border); background: var(--color-white); color: var(--color-text); border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+  .cart-item-qty span { min-width: 20px; text-align: center; font-size: 0.85rem; }
+  .cart-item-remove { background: none; border: none; color: var(--color-red); cursor: pointer; font-size: 0.8rem; margin-left: 8px; }
+  .cart-footer { padding: 24px; border-top: 1px solid var(--color-border); }
+  .cart-total-row { display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 1rem; font-weight: 700; }
+  .cart-total-row .total-label { color: var(--color-text); }
+  .cart-total-row .total-amount { color: var(--color-accent-dark); }
+  .cart-checkout { width: 100%; padding: 14px; background: var(--color-accent); color: var(--color-white); border: none; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+  .cart-checkout:hover { background: var(--color-accent-dark); transform: scale(1.02); box-shadow: 0 4px 16px rgba(59, 184, 184, 0.3); }
+  .cart-empty { text-align: center; padding: 60px 20px; color: var(--color-text-muted); }
+  .cart-empty-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .cart-drawer { width: 100%; right: -100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;">
+      <div class="header-top-inner">
+        <div class="header-top-left">
+          <a href="mailto:victor@enrovel.com"><i class="fas fa-envelope"></i> victor@enrovel.com</a>
+          <a href="mailto:info@enrovel.com"><i class="fas fa-envelope"></i> info@enrovel.com</a>
+          <a href="tel:+27746626356"><i class="fas fa-phone"></i> +27 74 662 6356</a>
+        </div>
+        <div class="header-top-right">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> South Africa</a>
+          <a href="#"><i class="fas fa-user"></i> Client Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <img src="../assets/img/enrovel-logo-gold.png" alt="Enrovel" height="40">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html#solutions">Solutions</a></li>
+          <li><a href="../index.html#products">Products</a></li>
+          <li><a href="../index.html#brands">Brands</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="btn btn-gold">Get Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- CART ICON -->
+<div class="cart-icon" id="cartIcon">
+  <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</div>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <button class="cart-close" id="cartClose">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="total-label">Total (incl. VAT):</span>
+      <span class="total-amount" id="cartTotal">R 0</span>
+    </div>
+    <button class="cart-checkout" id="cartCheckout">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- SHOP HERO -->
+<section class="shop-hero">
+  <div class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;text-align:center;">
+    <h1>Online Shop</h1>
+    <p>Professional AV, audio, and recording equipment — direct delivery across Africa</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;">
+
+  <!-- CATEGORY TABS (hidden on brand view) -->
+  <div class="category-tabs" id="categoryTabs" style="display:none;">
+    <button class="cat-tab active" data-cat="all">All Categories</button>
+    <button class="cat-tab" data-cat="Microphones">Microphones</button>
+    <button class="cat-tab" data-cat="Headphones & Headsets">Headphones</button>
+    <button class="cat-tab" data-cat="Mixers & Interfaces">Mixers & Interfaces</button>
+    <button class="cat-tab" data-cat="Recorders">Recorders</button>
+    <button class="cat-tab" data-cat="Wireless Systems">Wireless Systems</button>
+    <button class="cat-tab" data-cat="Accessories">Accessories</button>
+  </div>
+
+  <!-- PRODUCTS/BRANDS GRID -->
+  <div class="logo-grid" id="logoGrid"></div>
+  <div class="products-grid" id="productsGrid" style="display:none;"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container" style="max-width:1200px;margin:0 auto;padding:0 20px;">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>Premier B-BBEE Level 1 systems integrator. Pan-African AV, automation, and digital infrastructure.</p>
+        <div style="display:flex;gap:12px;margin-top:16px;">
+          <a href="https://www.linkedin.com/company/enrovel" target="_blank" rel="noopener" style="color:var(--color-gray-400);"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/enrovel" target="_blank" rel="noopener" style="color:var(--color-gray-400);"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/enrovel" target="_blank" rel="noopener" style="color:var(--color-gray-400);"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@enrovel" target="_blank" rel="noopener" style="color:var(--color-gray-400);"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h5>Solutions</h5>
+        <ul style="padding:0;">
+          <li><a href="solutions/boardroom.html">Boardroom</a></li>
+          <li><a href="solutions/events.html">Events</a></li>
+          <li><a href="solutions/retail.html">Retail</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Company</h5>
+        <ul style="padding:0;">
+          <li><a href="about.html">About</a></li>
+          <li><a href="brands.html">Brands</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Contact</h5>
+        <ul style="padding:0;">
+          <li><a href="mailto:victor@enrovel.com">victor@enrovel.com</a></li>
+          <li><a href="mailto:info@enrovel.com">info@enrovel.com</a></li>
+          <li><a href="tel:+27746626356">+27 74 662 6356</a></li>
+          <li>10 Vermont Park, Willow Avenue</li>
+          <li>Craigavon, Fourways</li>
+          <li>Johannesburg 2191, South Africa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Enrovel (Pty) Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/cart.js"></script>
+<script src="../assets/js/shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Enrovel</title>
+  <meta name="description" content="Contact Enrovel for AV, automation, and digital infrastructure solutions. B-BBEE Level 1 systems integrator.">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <!--#include virtual="/enrovel/includes/header.html" -->
+  
+  <section class="section contact-section" style="padding-top:calc(var(--space-3xl) + 72px);">
+    <div class="container">
+      <h1 style="margin-bottom:var(--space-lg);">Get In Touch</h1>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Contact Details</h2>
+          <p><strong>Email:</strong> <a href="mailto:victor@enrovel.com">victor@enrovel.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@enrovel.com">info@enrovel.com</a></p>
+          <p><strong>Tel:</strong> <a href="tel:+27746626356">+27 74 662 6356</a></p>
+          <p><strong>Address:</strong> 10 Vermont Park, Willow Avenue, Craigavon Fourways, Johannesburg 2191, South Africa</p>
+          <p><strong>Web:</strong> <a href="https://www.enrovel.com">www.enrovel.com</a></p>
+          <p><strong>B-BBEE:</strong> Level 1 Contributor</p>
+        </div>
+        <form class="contact-form" action="../contact-submit.php" method="POST">
+          <input type="text" name="name" placeholder="Full Name *" required>
+          <input type="email" name="email" placeholder="Email Address *" required>
+          <input type="text" name="company" placeholder="Company Name">
+          <input type="tel" name="phone" placeholder="Phone Number">
+          <select name="solution">
+            <option value="">Select Solution Vertical</option>
+            <option>Boardroom & Conference</option>
+            <option>Staging & Events</option>
+            <option>Retail Solutions</option>
+            <option>House of Worship</option>
+            <option>Hospitality</option>
+            <option>Education</option>
+            <option>Corporate</option>
+            <option>Touch Display</option>
+            <option>BYOD Solutions</option>
+            <option>Video Wall</option>
+            <option>Live Streaming</option>
+          </select>
+          <textarea name="message" placeholder="Tell us about your project... *" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!--#include virtual="/enrovel/includes/footer.html" -->
+  <script src="../assets/js/navigation.js"></script>
+</body>
+</html>

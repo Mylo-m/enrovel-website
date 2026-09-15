@@ -11,34 +11,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
-      /* Alfatron-style Light Palette */
-      --color-primary: #1A1A2E;
-      --color-primary-light: #252540;
-      --color-primary-dark: #0f0f1e;
-      --color-accent: #3BB8B8;
-      --color-accent-light: #6EE5E5;
-      --color-accent-dark: #2a8a8a;
-      --color-accent-glow: rgba(59, 184, 184, 0.15);
+      --color-primary: #0a0f1a;
+      --color-primary-light: #141c2e;
+      --color-primary-dark: #050810;
+      --color-accent: #00d4ff;
+      --color-accent-light: #4dd0e1;
+      --color-accent-dark: #008ba3;
+      --color-accent-glow: rgba(0, 212, 255, 0.15);
       --color-red: #ED1D24;
       --color-red-light: #F15A5E;
+      --color-gold: #c9a84c;
+      --color-gold-light: #e0c873;
       --color-blue: #1565c0;
       --color-blue-light: #42a5f5;
-
-      /* Light theme backgrounds */
+      --color-bg: #0a0f1a;
+      --color-bg-light: #141c2e;
+      --color-bg-dark: #050810;
+      --color-border: rgba(255,255,255,0.06);
+      --color-border-light: rgba(255,255,255,0.04);
+      --color-text: #e0e0e0;
+      --color-text-light: #a0a0b0;
+      --color-text-muted: #6c757d;
+      --color-text-heading: #ffffff;
       --color-white: #ffffff;
-      --color-bg: #F7F7FA;
-      --color-bg-light: #FFFFFF;
-      --color-bg-dark: #EEEEF4;
-      --color-border: #E5E5EA;
-      --color-border-light: #F0F0F5;
-
-      /* Light theme text */
-      --color-text: #2D2D2D;
-      --color-text-light: #4B5563;
-      --color-text-muted: #6B7280;
-      --color-text-heading: #1A1A2E;
-
-      /* Neutrals */
+      --color-black: #000000;
       --color-gray-100: #f8f9fa;
       --color-gray-200: #e9ecef;
       --color-gray-300: #dee2e6;
@@ -47,14 +43,9 @@
       --color-gray-600: #495057;
       --color-gray-700: #343a40;
       --color-gray-800: #212529;
-      --color-black: #000000;
-
-      /* Typography */
       --font-heading: 'Montserrat', 'Inter', sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-
-      /* Spacing */
       --space-xs: 0.25rem;
       --space-sm: 0.5rem;
       --space-md: 1rem;
@@ -63,15 +54,11 @@
       --space-2xl: 3rem;
       --space-3xl: 4rem;
       --space-4xl: 6rem;
-
-      /* Borders */
       --radius-sm: 4px;
       --radius-md: 8px;
       --radius-lg: 12px;
       --radius-xl: 16px;
       --radius-full: 9999px;
-
-      /* Transitions */
       --transition-fast: 150ms ease;
       --transition-base: 250ms ease;
       --transition-slow: 350ms ease;
@@ -87,17 +74,17 @@
     /* ===== HEADER ===== */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(10, 15, 26, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--color-border);
       transition: all var(--transition-base);
     }
     .header-top {
-      background: var(--color-primary);
+      background: var(--color-primary-dark);
       padding: 8px 0;
       font-size: 0.8rem;
       color: var(--color-gray-400);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
     .header-top-inner { display: flex; justify-content: space-between; align-items: center; }
     .header-top a { color: var(--color-gray-400); transition: color var(--transition-fast); }
@@ -107,7 +94,7 @@
     .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
     .logo { display: flex; align-items: center; gap: 12px; }
     .logo img { height: 40px; width: auto; }
-    .logo-text { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--color-primary); letter-spacing: -0.02em; }
+    .logo-text { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--color-text-heading); letter-spacing: -0.02em; }
     .logo-text span { color: var(--color-accent); }
     .main-nav { display: flex; align-items: center; }
     .main-nav .nav-list { display: flex; gap: var(--space-xl); list-style: none; }
@@ -126,7 +113,7 @@
       border-radius: var(--radius-md);
     }
     .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-primary); margin: 6px 0; transition: var(--transition-base); }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text-heading); margin: 6px 0; transition: var(--transition-base); }
 
     /* ===== HERO ===== */
     .hero {
@@ -136,17 +123,17 @@
     }
     .hero::before {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.03) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 30% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
       animation: heroFloat 25s ease-in-out infinite;
     }
     @keyframes heroFloat { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-2%, -2%); } }
     .hero-content { position: relative; z-index: 2; max-width: 900px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201, 168, 76, 0.1); border: 1px solid rgba(201, 168, 76, 0.3);
+      background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.2);
       padding: 6px 16px; border-radius: var(--radius-full); margin-bottom: var(--space-xl);
-      font-family: var(--font-heading); font-size: 0.8rem; font-weight: 500; color: var(--color-accent);
+      font-family: var(--font-heading); font-size: 0.8rem; font-weight: 500; color: var(--color-accent-light);
     }
     .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -156,18 +143,18 @@
     .hero-cta { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
     .hero-stats { display: flex; justify-content: center; gap: var(--space-3xl); margin-top: var(--space-3xl); padding-top: var(--space-2xl); border-top: 1px solid var(--color-border); }
     .hero-stat { text-align: center; }
-    .hero-stat-value { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-primary); }
+    .hero-stat-value { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-accent); }
     .hero-stat-label { font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
     /* ===== BUTTONS ===== */
     .btn { display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-md) var(--space-xl); font-family: var(--font-heading); font-weight: 600; font-size: 0.875rem; letter-spacing: 0.02em; border-radius: var(--radius-md); transition: all var(--transition-base); cursor: pointer; border: 2px solid transparent; text-decoration: none; text-align: center; justify-content: center; position: relative; overflow: hidden; }
-    .btn-accent { background: var(--color-accent); color: var(--color-white); border-color: var(--color-accent); box-shadow: 0 4px 20px var(--color-accent-glow); }
-    .btn-accent:hover { background: var(--color-accent-dark); transform: translateY(-2px); box-shadow: 0 8px 30px var(--color-accent-glow); }
+    .btn-accent { background: var(--color-accent); color: var(--color-primary); border-color: var(--color-accent); box-shadow: 0 4px 20px var(--color-accent-glow); }
+    .btn-accent:hover { background: var(--color-accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--color-accent-glow); }
     .btn-primary { background: linear-gradient(135deg, var(--color-blue), var(--color-blue-light)); color: var(--color-white); border-color: var(--color-blue); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(21, 101, 192, 0.3); }
-    .btn-outline { background: transparent; color: var(--color-primary); border-color: var(--color-border); }
-    .btn-outline:hover { border-color: var(--color-accent); background: rgba(59, 184, 184, 0.05); color: var(--color-accent); }
-    .btn-gold { background: linear-gradient(135deg, #c9a84c, #e0c873); color: var(--color-primary); border-color: #c9a84c; font-weight: 700; }
+    .btn-outline { background: transparent; color: var(--color-text); border-color: var(--color-border); }
+    .btn-outline:hover { border-color: var(--color-accent); background: rgba(0, 212, 255, 0.05); color: var(--color-accent); }
+    .btn-gold { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); color: var(--color-primary); border-color: var(--color-gold); font-weight: 700; }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3); }
     .btn-lg { padding: var(--space-lg) var(--space-2xl); font-size: 1rem; }
 
@@ -184,14 +171,14 @@
     /* ===== FEATURE STRIP ===== */
     .feature-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-xl); padding: var(--space-2xl) 0; }
     .feature-item { text-align: center; padding: var(--space-xl); }
-    .feature-icon { width: 56px; height: 56px; background: linear-gradient(135deg, rgba(59, 184, 184, 0.1), rgba(59, 184, 184, 0.05)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem; color: var(--color-accent); }
+    .feature-icon { width: 56px; height: 56px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.05)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 1.5rem; color: var(--color-accent); }
     .feature-item h4 { color: var(--color-text-heading); font-family: var(--font-heading); font-size: 1rem; margin-bottom: var(--space-xs); }
     .feature-item p { font-size: 0.85rem; color: var(--color-text-muted); margin: 0; }
 
     /* ===== SOLUTIONS ===== */
     .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); }
     .solution-card {
-      background: var(--color-white);
+      background: var(--color-bg-light);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl); padding: var(--space-xl);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -202,36 +189,32 @@
       background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
       opacity: 0; transition: opacity var(--transition-base);
     }
-    .solution-card:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 40px rgba(59, 184, 184, 0.1); }
+    .solution-card:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.1); }
     .solution-card:hover::before { opacity: 1; }
-    .solution-icon { width: 52px; height: 52px; background: rgba(59, 184, 184, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md); font-size: 1.5rem; color: var(--color-accent); }
+    .solution-icon { width: 52px; height: 52px; background: rgba(0, 212, 255, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md); font-size: 1.5rem; color: var(--color-accent); }
     .solution-card h3 { color: var(--color-text-heading); font-family: var(--font-heading); margin-bottom: var(--space-sm); font-size: 1.1rem; }
     .solution-card p { font-size: 0.875rem; margin: 0; color: var(--color-text-muted); line-height: 1.6; }
 
     /* ===== BRANDS ===== */
     .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-md); }
     .brand-card {
-      background: var(--color-bg-light);
+      background: rgba(255,255,255,0.03);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg); padding: var(--space-lg); text-align: center;
       transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; min-height: 70px;
     }
-    .brand-card:hover {
-      border-color: var(--color-accent);
-      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2), 0 2px 6px rgba(0,0,0,0.4);
-      transform: scale(1.05);
-    }
-    .brand-card span { font-family: var(--font-mono); font-weight: 700; font-size: 0.8rem; color: var(--color-text); letter-spacing: 0.08em; text-transform: uppercase; }
-    .brand-card img { max-height: 50px; max-width: 120px; object-fit: contain; filter: brightness(0.9); }
+    .brand-card:hover { border-color: var(--color-accent); background: rgba(0, 212, 255, 0.05); transform: scale(1.05); }
+    .brand-card span { font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; color: var(--color-text); letter-spacing: 0.05em; }
+    .brand-card img { max-height: 50px; max-width: 120px; object-fit: contain; }
 
     /* ===== PRODUCTS ===== */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-lg); }
     .product-card {
-      background: var(--color-white);
+      background: var(--color-bg-light);
       border: 1px solid var(--color-border); border-radius: var(--radius-xl);
       overflow: hidden; transition: all 0.4s ease;
     }
-    .product-card:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); }
+    .product-card:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
     .product-image { width: 100%; height: 180px; background: linear-gradient(135deg, var(--color-bg), var(--color-bg-dark)); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--color-accent); }
     .product-body { padding: var(--space-lg); }
     .product-body h4 { color: var(--color-text-heading); font-family: var(--font-heading); font-size: 1rem; margin-bottom: var(--space-sm); }
@@ -240,13 +223,13 @@
 
     /* ===== CTA ===== */
     .cta-box {
-      background: linear-gradient(135deg, rgba(59, 184, 184, 0.05), rgba(59, 184, 184, 0.02));
-      border: 1px solid rgba(59, 184, 184, 0.15); border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 212, 255, 0.02));
+      border: 1px solid rgba(0, 212, 255, 0.15); border-radius: var(--radius-xl);
       padding: var(--space-3xl); text-align: center; position: relative; overflow: hidden;
     }
     .cta-box::before {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at center, rgba(59, 184, 184, 0.05) 0%, transparent 60%);
+      background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 60%);
       animation: ctaPulse 4s ease-in-out infinite;
     }
     @keyframes ctaPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
@@ -262,10 +245,10 @@
     .footer-links a:hover { color: var(--color-white); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-xl); text-align: center; }
     .footer-bottom p { color: var(--color-gray-500); font-size: 0.85rem; margin: 0; }
-    .bbbee-badge { display: inline-block; background: linear-gradient(135deg, #c9a84c, #e0c873); color: var(--color-primary); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 700; margin-top: var(--space-md); letter-spacing: 0.05em; }
+    .bbbee-badge { display: inline-block; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)); color: var(--color-primary); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 700; margin-top: var(--space-md); letter-spacing: 0.05em; }
     .footer-social { display: flex; gap: 12px; margin-top: var(--space-md); }
     .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-gray-400); transition: all var(--transition-fast); }
-    .footer-social a:hover { background: var(--color-accent); color: var(--color-white); }
+    .footer-social a:hover { background: var(--color-accent); color: var(--color-primary); }
 
     /* ===== ANIMATIONS ===== */
     .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -311,7 +294,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="./" class="logo">
-          <img src="assets/img/enrovel-logo-gold.png" alt="Enrovel" height="40">
+          <img src="assets/img/enrovel-logo-white.png" alt="Enrovel" height="40">
         </a>
         <nav class="main-nav">
           <ul class="nav-list">
@@ -468,7 +451,7 @@
           <div class="product-body">
             <h4>PTZ Camera Systems</h4>
             <p>Auto-tracking, 4K capture, and seamless integration with room ecosystems.</p>
-            <span class="product-price" style="display:none;">From R12,500</span>
+            <span class="product-price">From R12,500</span>
           </div>
         </div>
         <div class="product-card fade-up delay-2">
@@ -476,7 +459,7 @@
           <div class="product-body">
             <h4>DSP Audio Processors</h4>
             <p>Advanced echo cancellation, beam mixing, and room optimization.</p>
-            <span class="product-price" style="display:none;">From R8,900</span>
+            <span class="product-price">From R8,900</span>
           </div>
         </div>
         <div class="product-card fade-up delay-3">
@@ -484,7 +467,7 @@
           <div class="product-body">
             <h4>AVoIP Matrix Switchers</h4>
             <p>Seamless 4K signal distribution over standard network infrastructure.</p>
-            <span class="product-price" style="display:none;">From R24,000</span>
+            <span class="product-price">From R24,000</span>
           </div>
         </div>
         <div class="product-card fade-up delay-4">
@@ -492,7 +475,7 @@
           <div class="product-body">
             <h4>Interactive Displays</h4>
             <p>4K touchscreen panels with built-in collaboration and wireless casting.</p>
-            <span class="product-price" style="display:none;">From R18,750</span>
+            <span class="product-price">From R18,750</span>
           </div>
         </div>
       </div>
@@ -506,29 +489,29 @@
   <section class="section section-dark" id="brands">
     <div class="container" style="text-align:center;">
       <div class="section-header fade-up">
-        <span class="section-label" style="color: var(--color-secondary);">Our Partners</span>
-        <h2>Elite Partner <span style="color: var(--color-secondary);">Brand</span> Ecosystem</h2>
+        <span class="section-label">Our Partners</span>
+        <h2>Elite Partner Brand Ecosystem</h2>
         <p>Authorized partner for the world's premier AV and automation manufacturers.</p>
       </div>
       <div class="brands-grid" style="margin: var(--space-2xl) 0;">
-        <div class="brand-card fade-up delay-1"><img src="brands/absen.png" alt="ABSEN"></div>
-        <div class="brand-card fade-up delay-1"><img src="brands/arec.png" alt="AREC"></div>
-        <div class="brand-card fade-up delay-1"><img src="brands/alfatron.png" alt="ALFATRON"></div>
-        <div class="brand-card fade-up delay-2"><img src="brands/audio-technica.png" alt="AUDIO-TECHNICA"></div>
-        <div class="brand-card fade-up delay-2"><img src="brands/barix.png" alt="BARIX"></div>
-        <div class="brand-card fade-up delay-2"><img src="brands/beyerdynamic.png" alt="BEYERDYNAMIC"></div>
+        <div class="brand-card fade-up delay-1"><span>ABSEN</span></div>
+        <div class="brand-card fade-up delay-1"><span>AREC</span></div>
+        <div class="brand-card fade-up delay-1"><span>ALFATRON</span></div>
+        <div class="brand-card fade-up delay-2"><span>AUDIO-TECHNICA</span></div>
+        <div class="brand-card fade-up delay-2"><span>BARIX</span></div>
+        <div class="brand-card fade-up delay-2"><span>BEYERDYNAMIC</span></div>
         <div class="brand-card fade-up delay-3"><span>BIAMP</span></div>
-        <div class="brand-card fade-up delay-3"><img src="brands/bose-pro.png" alt="BOSE PRO"></div>
-        <div class="brand-card fade-up delay-3"><img src="brands/catchbox.png" alt="CATCHBOX"></div>
-        <div class="brand-card fade-up delay-4"><img src="brands/cloud.png" alt="CLOUD"></div>
+        <div class="brand-card fade-up delay-3"><span>BOSE PRO</span></div>
+        <div class="brand-card fade-up delay-3"><span>CATCHBOX</span></div>
+        <div class="brand-card fade-up delay-4"><span>CLOUD</span></div>
         <div class="brand-card fade-up delay-4"><span>GRANDVIEW</span></div>
-        <div class="brand-card fade-up delay-4"><img src="brands/infocus.png" alt="INFOCUS"></div>
+        <div class="brand-card fade-up delay-4"><span>INFOCUS</span></div>
         <div class="brand-card fade-up delay-1"><span>NIVEO</span></div>
-        <div class="brand-card fade-up delay-1"><img src="brands/rolls.png" alt="ROLLS"></div>
-        <div class="brand-card fade-up delay-2"><img src="brands/smartbus-g4.png" alt="SMARTBUS-G4"></div>
-        <div class="brand-card fade-up delay-2"><img src="brands/tascam.png" alt="TASCAM"></div>
-        <div class="brand-card fade-up delay-3"><img src="brands/montarbo.png" alt="MONTARBO"></div>
-        <div class="brand-card fade-up delay-3"><img src="brands/wyrestorm.png" alt="WYRESTORM"></div>
+        <div class="brand-card fade-up delay-1"><span>ROLLS</span></div>
+        <div class="brand-card fade-up delay-2"><span>SMARTBUS-G4</span></div>
+        <div class="brand-card fade-up delay-2"><span>TASCAM</span></div>
+        <div class="brand-card fade-up delay-3"><span>MONTARBO</span></div>
+        <div class="brand-card fade-up delay-3"><span>WYRESTORM</span></div>
         <div class="brand-card fade-up delay-4"><span>YEALINK</span></div>
       </div>
       <a href="pages/brands.html" class="btn btn-outline fade-up">View All Brands</a>
@@ -556,7 +539,7 @@
             <img src="assets/img/enrovel-logo-white.png" alt="Enrovel" height="40">
           </div>
           <p>Premier B-BBEE Level 1 systems integrator. Pan-African AV, automation, and digital infrastructure solutions.</p>
-          <div class="bbbee-badge" style="margin: 16px 0; display: inline-block; background: var(--color-accent); color: var(--color-white); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">B-BBEE Level 1</div>
+          <div class="bbbee-badge">B-BBEE Level 1</div>
           <div class="footer-social">
             <a href="https://www.linkedin.com/company/enrovel" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.facebook.com/enrovel" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -589,14 +572,12 @@
             <li><a href="mailto:victor@enrovel.com">victor@enrovel.com</a></li>
             <li><a href="mailto:info@enrovel.com">info@enrovel.com</a></li>
             <li><a href="tel:+27746626356">+27 74 662 6356</a></li>
-            <li>10 Vermont Park, Willow Avenue</li>
-            <li>Craigavon, Fourways</li>
-            <li>Johannesburg 2191, South Africa</li>
+            <li>South Africa</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Enrovel (Pty) Ltd. All rights reserved. | <a href="pages/privacy.html" style="color: var(--color-accent);">Privacy Policy</a> | <a href="pages/terms.html" style="color: var(--color-accent);">Terms of Service</a></p>
+        <p>&copy; 2026 Enrovel (Pty) Ltd. All rights reserved.</p>
       </div>
     </div>
   </footer>

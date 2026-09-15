@@ -1,19 +1,21 @@
 :root {
-  /* Primary — Deep navy for accents/headers */
-  --color-primary: #1A1A2E;
-  --color-primary-light: #252540;
-  --color-primary-dark: #0f0f1e;
+  /* ===== DARK THEME: BLACK + GOLD + WHITE ===== */
 
-  /* Accent — Cyan/teal (Alfatron-inspired) */
-  --color-accent: #3BB8B8;
-  --color-accent-light: #6EE5E5;
-  --color-accent-dark: #2a8a8a;
-  --color-accent-glow: rgba(59, 184, 184, 0.15);
+  /* Primary — Deep black */
+  --color-primary: #0a0a0a;
+  --color-primary-light: #1a1a1a;
+  --color-primary-dark: #000000;
 
-  /* Secondary — Gold for CTAs */
-  --color-secondary: #c9a84c;
-  --color-secondary-light: #e0c873;
-  --color-secondary-dark: #a08030;
+  /* Accent — Gold (from Enrovel logo) */
+  --color-accent: #c9a84c;
+  --color-accent-light: #e0c873;
+  --color-accent-dark: #a08030;
+  --color-accent-glow: rgba(201, 168, 76, 0.15);
+
+  /* Secondary — Teal (subtle highlights) */
+  --color-secondary: #3BB8B8;
+  --color-secondary-light: #6EE5E5;
+  --color-secondary-dark: #2a8a8a;
 
   /* Utility */
   --color-red: #ED1D24;
@@ -21,30 +23,30 @@
   --color-blue: #1565c0;
   --color-blue-light: #42a5f5;
 
-  /* Light theme backgrounds */
+  /* Dark theme backgrounds */
   --color-white: #ffffff;
-  --color-bg: #F7F7FA;
-  --color-bg-light: #FFFFFF;
-  --color-bg-dark: #EEEEF4;
-  --color-border: #E5E5EA;
-  --color-border-light: #F0F0F5;
+  --color-bg: #0a0a0a;
+  --color-bg-light: #141414;
+  --color-bg-dark: #0f0f0f;
+  --color-border: #2a2a2a;
+  --color-border-light: #1f1f1f;
 
-  /* Light theme text */
-  --color-text: #2D2D2D;
-  --color-text-light: #4B5563;
-  --color-text-muted: #6B7280;
-  --color-text-heading: #1A1A2E;
+  /* Dark theme text */
+  --color-text: #e0e0e0;
+  --color-text-light: #b0b0b0;
+  --color-text-muted: #808080;
+  --color-text-heading: #ffffff;
 
   /* Neutrals */
-  --color-gray-100: #f8f9fa;
-  --color-gray-200: #e9ecef;
-  --color-gray-300: #dee2e6;
-  --color-gray-400: #adb5bd;
-  --color-gray-500: #6c757d;
-  --color-gray-600: #495057;
-  --color-gray-700: #343a40;
-  --color-gray-800: #212529;
-  --color-gray-900: #111827;
+  --color-gray-100: #1a1a1a;
+  --color-gray-200: #222222;
+  --color-gray-300: #2a2a2a;
+  --color-gray-400: #333333;
+  --color-gray-500: #555555;
+  --color-gray-600: #777777;
+  --color-gray-700: #999999;
+  --color-gray-800: #bbbbbb;
+  --color-gray-900: #dddddd;
   --color-black: #000000;
 
   /* Typography */
@@ -75,9 +77,9 @@
   --transition-slow: 350ms ease;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-  --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
-  --shadow-glow: 0 0 20px rgba(59, 184, 184, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 20px rgba(201, 168, 76, 0.2);
 }
